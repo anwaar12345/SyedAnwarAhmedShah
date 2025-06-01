@@ -6,37 +6,81 @@
     <title>Syed Anwar Ahmed Shah | Backend Engineer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
+            --accent-color: #2980b9;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-text);
             scroll-behavior: smooth;
         }
+        
         .navbar {
             background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
         }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
         .hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 100px 0 80px;
+            padding: 120px 0 100px;
             color: white;
-            margin-top: 56px; /* For fixed navbar */
+            margin-top: 72px;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
         .profile-img {
             width: 220px;
             height: 220px;
             object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
         }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
         .section-title {
             position: relative;
-            margin-bottom: 45px;
+            margin-bottom: 50px;
             color: var(--primary-color);
+            font-weight: 600;
         }
+        
         .section-title:after {
             content: '';
             position: absolute;
@@ -44,67 +88,220 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
+            height: 4px;
             background: var(--secondary-color);
+            border-radius: 2px;
         }
+        
         .timeline {
             position: relative;
             padding-left: 30px;
         }
+        
         .timeline:before {
             content: '';
             position: absolute;
-            left: 5px;
+            left: 7px;
             top: 0;
             bottom: 0;
             width: 2px;
             background: var(--secondary-color);
         }
+        
         .timeline-item {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
         }
+        
         .timeline-item:before {
             content: '';
             position: absolute;
-            left: -30px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
+            left: -36px;
+            top: 30px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: var(--secondary-color);
-            border: 2px solid white;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--secondary-color);
         }
+        
         .skill-badge {
             font-size: 0.85rem;
             margin: 0 8px 8px 0;
-            padding: 8px 12px;
-            background-color: #f8f9fa;
+            padding: 8px 15px;
+            background-color: white;
             color: var(--primary-color);
-            border: 1px solid #dee2e6;
+            border: 1px solid #e0e0e0;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
         }
+        
+        .skill-badge:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
         .github-project {
-            transition: all 0.3s;
-            border-left: 3px solid var(--secondary-color);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--secondary-color);
+            height: 100%;
+            border-radius: 8px;
         }
+        
         .github-project:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
         }
+        
         .language-dot {
             display: inline-block;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            margin-right: 5px;
+            margin-right: 6px;
         }
+        
+        .btn-primary-custom {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-outline-custom {
+            border-color: white;
+            color: white;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-custom:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-card {
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(52, 152, 219, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 25px 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            color: white;
+        }
+        
+        .highlight-text {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
         @media (max-width: 768px) {
             .hero {
-                padding: 80px 0 60px;
+                padding: 100px 0 80px;
             }
+            
             .profile-img {
                 width: 180px;
                 height: 180px;
+            }
+            
+            .section-title {
+                margin-bottom: 40px;
+            }
+            
+            .section-title:after {
+                width: 60px;
+                height: 3px;
+            }
+            
+            .timeline-item {
+                padding: 20px;
             }
         }
     </style>
@@ -113,7 +310,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Syed Anwar Ahmed Shah</a>
+            <a class="navbar-brand fw-bold" href="#">
+                <span class="highlight-text">Syed</span> Anwar Ahmed Shah
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -132,14 +331,20 @@
 
     <!-- Hero Section -->
     <header class="hero text-center">
-        <div class="container">
+        <div class="container position-relative">
             <img src="./MyPic.jfif" alt="Syed Anwar Ahmed Shah" class="profile-img rounded-circle mb-4">
             <h1 class="display-4 fw-bold mb-3">Syed Anwar Ahmed Shah</h1>
-            <p class="lead fs-4 mb-4">Backend Engineer | PHP/Laravel Specialist | API Developer</p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="./Syed-Anwar-Shah-cv-2024 (2).pdf" class="btn btn-light btn-lg px-4" target="_blank">Download CV</a>
-                <a href="#contact" class="btn btn-light btn-lg px-4">Hire Me</a>
-                <a href="#github" class="btn btn-outline-light btn-lg px-4">View Projects</a>
+            <p class="lead fs-4 mb-4">Backend Engineer | <span class="highlight-text">PHP/Laravel</span> Expert | API Architect</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="./Syed-Anwar-Shah-cv-2024 (2).pdf" class="btn btn-primary-custom" target="_blank">
+                    <i class="bi bi-download me-2"></i>Download CV
+                </a>
+                <a href="#contact" class="btn btn-outline-custom">
+                    <i class="bi bi-send me-2"></i>Hire Me
+                </a>
+                <a href="#github" class="btn btn-outline-custom">
+                    <i class="bi bi-code-slash me-2"></i>View Projects
+                </a>
             </div>
         </div>
     </header>
@@ -150,9 +355,18 @@
             <h2 class="text-center section-title">About Me</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <p class="lead">I am a passionate backend engineer with 5.5+ years of professional experience specializing in PHP, Laravel, and API development.</p>
-                    <p>Currently working at Golootlo Pakistan, I have a proven track record of building scalable backend systems, integrating third-party services, and optimizing database performance. My expertise includes RESTful API development, microservices architecture, and implementing payment gateways like Stripe.</p>
-                    <p>I take pride in writing clean, maintainable code and following best practices like SOLID principles and design patterns. My goal is to build robust systems that deliver exceptional performance and reliability.</p>
+                <p class="lead mb-4">
+                    I am a passionate <span class="highlight-text">Software Engineer</span> with over <span class="highlight-text">5.5 years</span> of hands-on experience, specializing in <span class="highlight-text">PHP</span>, <span class="highlight-text">Laravel</span>, and <span class="highlight-text">API development</span>.
+                    </p>
+
+                    <p class="mb-4">
+                    Currently, I’m contributing to Golootlo Pakistan, where I design and develop scalable systems, integrate third-party services, and optimize complex databases for peak performance. My core expertise includes building <span class="highlight-text">RESTful APIs</span>, working with <span class="highlight-text">microservices architecture</span>, and integrating <span class="highlight-text">payment gateways</span> such as Stripe.
+                    </p>
+
+                    <p>
+                    I take pride in writing clean, maintainable code that follows industry best practices, including <span class="highlight-text">SOLID principles</span> and proven design patterns. My mission is to engineer high-performance, reliable solutions that create meaningful business impact.
+                    </p>
+    
                 </div>
             </div>
         </div>
@@ -163,58 +377,89 @@
         <div class="container">
             <h2 class="text-center section-title">Professional Experience</h2>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-9">
                     <div class="timeline">
                         <!-- Golootlo -->
                         <div class="timeline-item">
-                            <h3 class="h4 mb-1">Software Engineer</h3>
-                            <h4 class="h5 text-muted mb-2">Golootlo Pakistan, Karachi</h4>
-                            <div class="small text-muted mb-2">July 2023 - Present</div>
-                            <ul>
-                                <li>Developed scalable APIs using Laravel, Lumen, and SLIM frameworks with Elasticsearch integration</li>
-                                <li>Implemented HUAWEI PUSKIT for push notifications, increasing app engagement by 30%</li>
-                                <li>Designed and optimized database schemas for high-traffic applications</li>
-                                <li>Mentored junior developers and conducted code reviews</li>
-                                <li>Integrated multiple third-party APIs including payment gateways and SMS services</li>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h3 class="h4 mb-1">Software Engineer</h3>
+                                    <h4 class="h5 text-muted mb-0">Golootlo Pakistan, Karachi</h4>
+                                </div>
+                                <div class="badge bg-primary-custom text-white">July 2023 - Present</div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                Built scalable APIs using Laravel, Lumen, and SLIM frameworks, integrated with Elasticsearch for advanced search capabilities.
+                                </li>
+                                <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                Integrated HUAWEI Push Kit to enable real-time notifications, boosting app engagement by over 30%.
+                                </li>
+                                <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                Architected and developed a complete eCommerce ecosystem, including user/admin portals and backend APIs, using Laravel, Lumen, SLIM, MySQL, and Elasticsearch.
+                                </li>
+                                <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                Designed and optimized relational database schemas for high-performance, high-traffic web applications.
+                                </li>
+                                <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                Mentored junior developers, led code reviews, and promoted best practices to ensure clean, maintainable codebases.
+                                </li>
                             </ul>
                         </div>
                         
                         <!-- Appiskey -->
                         <div class="timeline-item">
-                            <h3 class="h4 mb-1">PHP Developer (Laravel)</h3>
-                            <h4 class="h5 text-muted mb-2">Appiskey Pakistan, Karachi</h4>
-                            <div class="small text-muted mb-2">June 2021 - July 2023</h4>
-                            <ul>
-                                <li>Developed RESTful APIs for mobile and web applications using Laravel/Lumen</li>
-                                <li>Integrated Stripe payment gateway and implemented Stripe Connect for marketplace payments</li>
-                                <li>Wrote comprehensive feature tests achieving 85% code coverage</li>
-                                <li>Optimized database queries reducing response times by 40%</li>
-                                <li>Recognized as Employee of the Month (February 2022)</li>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h3 class="h4 mb-1">PHP Developer (Laravel)</h3>
+                                    <h4 class="h5 text-muted mb-0">Appiskey Pakistan, Karachi</h4>
+                                </div>
+                                <div class="badge bg-primary-custom text-white">June 2021 - July 2023</div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Developed RESTful APIs for mobile and web applications using Laravel/Lumen</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Integrated Stripe payment gateway and implemented Stripe Connect for marketplace payments</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Wrote comprehensive feature tests achieving 85% code coverage</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Optimized database queries reducing response times by 40%</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Recognized as Employee of the Month (February 2022)</li>
                             </ul>
                         </div>
                         
                         <!-- Nexus -->
                         <div class="timeline-item">
-                            <h3 class="h4 mb-1">Junior Software Engineer</h3>
-                            <h4 class="h5 text-muted mb-2">Nexus Corporation, Karachi</h4>
-                            <div class="small text-muted mb-2">October 2020 - June 2021</h4>
-                            <ul>
-                                <li>Developed web applications and APIs using Laravel and Lumen frameworks</li>
-                                <li>Maintained and enhanced existing CMS systems using CodeIgniter</li>
-                                <li>Implemented OOP principles in legacy PHP applications</li>
-                                <li>Collaborated with frontend developers to integrate UI components</li>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h3 class="h4 mb-1">Junior Software Engineer</h3>
+                                    <h4 class="h5 text-muted mb-0">Nexus Corporation, Karachi</h4>
+                                </div>
+                                <div class="badge bg-primary-custom text-white">October 2020 - June 2021</div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Developed web applications and APIs using Laravel and Lumen frameworks</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Maintained and enhanced existing CMS systems using CodeIgniter</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Implemented OOP principles in legacy PHP applications</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Collaborated with frontend developers to integrate UI components</li>
                             </ul>
                         </div>
                         
                         <!-- Next Generation Innovations -->
                         <div class="timeline-item">
-                            <h3 class="h4 mb-1">Applications Associate Engineer</h3>
-                            <h4 class="h5 text-muted mb-2">Next Generation Innovations, Karachi</h4>
-                            <div class="small text-muted mb-2">2019 - 2020</h4>
-                            <ul>
-                                <li>Received backend engineering training using LAMP stack</li>
-                                <li>Developed web applications and APIs using Laravel</li>
-                                <li>Participated in code reviews and sprint planning</li>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h3 class="h4 mb-1">Applications Associate Engineer</h3>
+                                    <h4 class="h5 text-muted mb-0">Next Generation Innovations, Karachi</h4>
+                                </div>
+                                <div class="badge bg-primary-custom text-white">2019 - 2020</div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Received backend engineering training using LAMP stack</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Developed web applications and APIs using Laravel</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Participated in code reviews and sprint planning</li>
                             </ul>
                         </div>
                     </div>
@@ -228,49 +473,76 @@
         <div class="container">
             <h2 class="text-center section-title">Technical Skills</h2>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <div class="row">
                         <div class="col-md-6 mb-4">
-                            <h4 class="h5 mb-3">Backend Technologies</h4>
-                            <div>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> PHP</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Laravel</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Lumen</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> MySQL</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> REST APIs</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> GraphQL</span>
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="h5 mb-3 d-flex align-items-center">
+                                        <i class="bi bi-server me-2 text-primary"></i> Backend Technologies
+                                    </h4>
+                                    <div>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> PHP</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Laravel</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Lumen</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> MySQL</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> REST APIs</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Node.js</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Html</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Css</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Javascript</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> jQuery</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="col-md-6 mb-4">
-                            <h4 class="h5 mb-3">Tools & Platforms</h4>
-                            <div>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Git</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Docker</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> AWS</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Elasticsearch</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Redis</span>
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="h5 mb-3 d-flex align-items-center">
+                                        <i class="bi bi-tools me-2 text-primary"></i> Tools & Platforms
+                                    </h4>
+                                    <div>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Git</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Elasticsearch</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Redis</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="col-md-6 mb-4">
-                            <h4 class="h5 mb-3">Integrations</h4>
-                            <div>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Stripe</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Huawei PushKit</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Twilio</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Firebase</span>
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="h5 mb-3 d-flex align-items-center">
+                                        <i class="bi bi-plug me-2 text-primary"></i> Integrations
+                                    </h4>
+                                    <div>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Stripe/Stripe Connect</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Huawei PushKit</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Twilio</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Firebase</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="col-md-6 mb-4">
-                            <h4 class="h5 mb-3">Practices & Methodologies</h4>
-                            <div>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> OOP</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> SOLID</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> TDD</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Microservices</span>
-                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> CI/CD</span>
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="h5 mb-3 d-flex align-items-center">
+                                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Practices & Methodologies
+                                    </h4>
+                                    <div>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> OOP</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> SOLID Principles</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> MVC</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Microservices</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Design Patterns</span>
+                                        <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Agile</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -284,19 +556,21 @@
         <div class="container">
             <h2 class="text-center section-title">Education & Certifications</h2>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-9">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-shrink-0">
-                                    <i class="bi bi-mortarboard-fill text-primary fs-1"></i>
+                                    <div class="contact-icon">
+                                        <i class="bi bi-mortarboard"></i>
+                                    </div>
                                 </div>
-                                <div class="flex-grow-1 ms-4">
+                                <div class="flex-grow-1">
                                     <h4 class="card-title">BS Software Engineering</h4>
                                     <h5 class="card-subtitle mb-2 text-muted">Mohammad Ali Jinnah University, Karachi</h5>
                                     <div class="d-flex flex-wrap mt-3">
                                         <span class="badge bg-light text-dark me-2 mb-2">
-                                            <i class="bi bi-calendar me-1"></i> 2016 - 2020
+                                            <i class="bi bi-calendar me-1"></i> 2015 - 2020
                                         </span>
                                         <span class="badge bg-light text-dark me-2 mb-2">
                                             <i class="bi bi-award me-1"></i> Software Development
@@ -304,7 +578,8 @@
                                     </div>
                                     <p class="card-text mt-2">
                                         Completed degree with focus on software architecture, database systems, 
-                                        and web application development.
+                                        and web application development. Specialized in backend systems design 
+                                        and distributed computing.
                                     </p>
                                 </div>
                             </div>
@@ -313,37 +588,59 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title mb-4">Certifications</h4>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <i class="bi bi-patch-check-fill text-success me-2"></i>
-                                        IT Entrepreneurship (Web and Mobile App Development) - IBA Karachi
+                            <h4 class="card-title mb-4 d-flex align-items-center">
+                                <i class="bi bi-patch-check text-primary me-2"></i> Certifications
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">IT Entrepreneurship (Web and Mobile App Development)</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">IBA Karachi</h6>
+                                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <span class="badge bg-primary-custom text-white">2021</span>
+                                                <a href="#" class="btn btn-sm btn-outline-primary">View Credential</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="badge bg-light text-dark">2021</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <i class="bi bi-patch-check-fill text-success me-2"></i>
-                                        Web Development using PHP and MySQL - APTECH
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Web Development using PHP and MySQL</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">APTECH</h6>
+                                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <span class="badge bg-primary-custom text-white">2019</span>
+                                                <a href="#" class="btn btn-sm btn-outline-primary">View Credential</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="badge bg-light text-dark">2019</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <i class="bi bi-patch-check-fill text-success me-2"></i>
-                                        Eloquent ORM - Udemy
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Eloquent ORM Mastery</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Udemy</h6>
+                                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <span class="badge bg-primary-custom text-white">2020</span>
+                                                <a href="#" class="btn btn-sm btn-outline-primary">View Credential</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="badge bg-light text-dark">2020</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <i class="bi bi-patch-check-fill text-success me-2"></i>
-                                        JavaScript Algorithms - freeCodeCamp
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">JavaScript Algorithms</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">freeCodeCamp</h6>
+                                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <span class="badge bg-primary-custom text-white">2022</span>
+                                                <a href="#" class="btn btn-sm btn-outline-primary">View Credential</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="badge bg-light text-dark">2022</span>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -361,23 +658,23 @@
                 </div>
             </div>
             
-            <div id="github-stats" class="card mb-4 p-3">
+            <div id="github-stats" class="card mb-4 p-4">
                 <div class="row text-center">
-                    <div class="col-6 col-md-3">
-                        <h4 id="repo-count">--</h4>
-                        <small>Repositories</small>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="stat-number" id="repo-count">--</div>
+                        <div class="stat-label">Repositories</div>
                     </div>
-                    <div class="col-6 col-md-3">
-                        <h4 id="gist-count">--</h4>
-                        <small>Gists</small>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="stat-number" id="gist-count">--</div>
+                        <div class="stat-label">Gists</div>
                     </div>
-                    <div class="col-6 col-md-3">
-                        <h4 id="follower-count">--</h4>
-                        <small>Followers</small>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="stat-number" id="follower-count">--</div>
+                        <div class="stat-label">Followers</div>
                     </div>
-                    <div class="col-6 col-md-3">
-                        <h4 id="star-count">--</h4>
-                        <small>Stars</small>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="stat-number" id="star-count">--</div>
+                        <div class="stat-label">Stars</div>
                     </div>
                 </div>
             </div>
@@ -391,42 +688,84 @@
         <div class="container">
             <h2 class="text-center section-title">Get In Touch</h2>
             <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card">
+                <div class="col-lg-8">
+                    <div class="card contact-card">
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <i class="bi bi-envelope-fill text-primary me-2"></i>
-                                    <a href="mailto:syedanwar016@gmail.com">syedanwar016@gmail.com</a>
+                                <li class="list-group-item d-flex align-items-center">
+                                    <div class="contact-icon">
+                                        <i class="bi bi-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Email</h5>
+                                        <a href="mailto:syedanwar016@gmail.com" class="text-decoration-none">syedanwar016@gmail.com</a>
+                                    </div>
                                 </li>
-                                <li class="list-group-item">
-                                    <i class="bi bi-phone-fill text-primary me-2"></i>
-                                    +92-332-0298363
+                                <li class="list-group-item d-flex align-items-center">
+                                    <div class="contact-icon">
+                                        <i class="bi bi-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Phone</h5>
+                                        <a href="tel:+923320298363" class="text-decoration-none">+92-332-0298363</a>
+                                    </div>
                                 </li>
-                                <li class="list-group-item">
-                                    <i class="bi bi-github text-primary me-2"></i>
-                                    <a href="https://github.com/anwaar12345" target="_blank">github.com/anwaar12345</a>
+                                <li class="list-group-item d-flex align-items-center">
+                                    <div class="contact-icon">
+                                        <i class="bi bi-github"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">GitHub</h5>
+                                        <a href="https://github.com/anwaar12345" target="_blank" class="text-decoration-none">github.com/anwaar12345</a>
+                                    </div>
                                 </li>
-                                <li class="list-group-item">
-                                    <i class="bi bi-geo-alt-fill text-primary me-2"></i>
-                                    Karachi, Pakistan
+                                <li class="list-group-item d-flex align-items-center">
+                                    <div class="contact-icon">
+                                        <i class="bi bi-geo-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Location</h5>
+                                        <p class="mb-0">Karachi, Pakistan</p>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <h4 class="mb-3">Let's Work Together</h4>
+                        <p>I'm currently available for freelance projects or full-time opportunities. Feel free to reach out!</p>
+                        <a href="mailto:syedanwar016@gmail.com" class="btn btn-primary-custom btn-lg px-4">
+                            <i class="bi bi-envelope me-2"></i>Send Message
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-4 bg-dark text-white text-center">
+    <footer class="footer text-center">
         <div class="container">
-            <p class="mb-0">&copy; 2024 Syed Anwar Ahmed Shah. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/anwaar12345" target="_blank" class="social-link">
+                    <i class="bi bi-github"></i>
+                </a>
+                <a href="https://pk.linkedin.com/in/syed-anwar-ahmed-shah-2aa16a190" target="_blank" class="social-link">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="https://stackoverflow.com/users/21335556/syed-anwar-ahmed-shah" target="_blank" class="social-link">
+                    <i class="bi bi-stack-overflow"></i>
+                </a>
+            </div>
+ <p class="mb-0 mt-3">
+  &copy; <script>document.write(new Date().getFullYear());</script> Syed Anwar Ahmed Shah. All rights reserved.
+</p>
+
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+     <script>
         // GitHub API Integration
         const GITHUB_USERNAME = 'anwaar12345';
         const PROJECTS_CONTAINER = document.getElementById('projects-container');
@@ -512,6 +851,4 @@
 
         // Load GitHub data when page loads
         document.addEventListener('DOMContentLoaded', fetchGitHubData);
-    </script>
-</body>
-</html>
+    </script>       
