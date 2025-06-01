@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Anwar Ahmed Shah | Backend Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            background-color: var(--primary-color) !important;
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 100px 0 80px;
+            color: white;
+            margin-top: 56px; /* For fixed navbar */
+        }
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .section-title {
+            position: relative;
+            margin-bottom: 45px;
+            color: var(--primary-color);
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--secondary-color);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 2px solid white;
+        }
+        .skill-badge {
+            font-size: 0.85rem;
+            margin: 0 8px 8px 0;
+            padding: 8px 12px;
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+            border: 1px solid #dee2e6;
+        }
+        .github-project {
+            transition: all 0.3s;
+            border-left: 3px solid var(--secondary-color);
+        }
+        .github-project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .language-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 60px;
+            }
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Syed Anwar Ahmed Shah</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#github">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero text-center">
+        <div class="container">
+            <img src="./MyPic.jfif" alt="Syed Anwar Ahmed Shah" class="profile-img rounded-circle mb-4">
+            <h1 class="display-4 fw-bold mb-3">Syed Anwar Ahmed Shah</h1>
+            <p class="lead fs-4 mb-4">Backend Engineer | PHP/Laravel Specialist | API Developer</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="./Syed-Anwar-Shah-cv-2024 (2).pdf" class="btn btn-light btn-lg px-4" target="_blank">Download CV</a>
+                <a href="#contact" class="btn btn-light btn-lg px-4">Hire Me</a>
+                <a href="#github" class="btn btn-outline-light btn-lg px-4">View Projects</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">About Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="lead">I am a passionate backend engineer with 5.5+ years of professional experience specializing in PHP, Laravel, and API development.</p>
+                    <p>Currently working at Golootlo Pakistan, I have a proven track record of building scalable backend systems, integrating third-party services, and optimizing database performance. My expertise includes RESTful API development, microservices architecture, and implementing payment gateways like Stripe.</p>
+                    <p>I take pride in writing clean, maintainable code and following best practices like SOLID principles and design patterns. My goal is to build robust systems that deliver exceptional performance and reliability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Professional Experience</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline">
+                        <!-- Golootlo -->
+                        <div class="timeline-item">
+                            <h3 class="h4 mb-1">Software Engineer</h3>
+                            <h4 class="h5 text-muted mb-2">Golootlo Pakistan, Karachi</h4>
+                            <div class="small text-muted mb-2">July 2023 - Present</div>
+                            <ul>
+                                <li>Developed scalable APIs using Laravel, Lumen, and SLIM frameworks with Elasticsearch integration</li>
+                                <li>Implemented HUAWEI PUSKIT for push notifications, increasing app engagement by 30%</li>
+                                <li>Designed and optimized database schemas for high-traffic applications</li>
+                                <li>Mentored junior developers and conducted code reviews</li>
+                                <li>Integrated multiple third-party APIs including payment gateways and SMS services</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Appiskey -->
+                        <div class="timeline-item">
+                            <h3 class="h4 mb-1">PHP Developer (Laravel)</h3>
+                            <h4 class="h5 text-muted mb-2">Appiskey Pakistan, Karachi</h4>
+                            <div class="small text-muted mb-2">June 2021 - July 2023</h4>
+                            <ul>
+                                <li>Developed RESTful APIs for mobile and web applications using Laravel/Lumen</li>
+                                <li>Integrated Stripe payment gateway and implemented Stripe Connect for marketplace payments</li>
+                                <li>Wrote comprehensive feature tests achieving 85% code coverage</li>
+                                <li>Optimized database queries reducing response times by 40%</li>
+                                <li>Recognized as Employee of the Month (February 2022)</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Nexus -->
+                        <div class="timeline-item">
+                            <h3 class="h4 mb-1">Junior Software Engineer</h3>
+                            <h4 class="h5 text-muted mb-2">Nexus Corporation, Karachi</h4>
+                            <div class="small text-muted mb-2">October 2020 - June 2021</h4>
+                            <ul>
+                                <li>Developed web applications and APIs using Laravel and Lumen frameworks</li>
+                                <li>Maintained and enhanced existing CMS systems using CodeIgniter</li>
+                                <li>Implemented OOP principles in legacy PHP applications</li>
+                                <li>Collaborated with frontend developers to integrate UI components</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Next Generation Innovations -->
+                        <div class="timeline-item">
+                            <h3 class="h4 mb-1">Applications Associate Engineer</h3>
+                            <h4 class="h5 text-muted mb-2">Next Generation Innovations, Karachi</h4>
+                            <div class="small text-muted mb-2">2019 - 2020</h4>
+                            <ul>
+                                <li>Received backend engineering training using LAMP stack</li>
+                                <li>Developed web applications and APIs using Laravel</li>
+                                <li>Participated in code reviews and sprint planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Technical Skills</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <h4 class="h5 mb-3">Backend Technologies</h4>
+                            <div>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> PHP</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Laravel</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Lumen</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> MySQL</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> REST APIs</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> GraphQL</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <h4 class="h5 mb-3">Tools & Platforms</h4>
+                            <div>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Git</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Docker</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> AWS</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Elasticsearch</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Redis</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <h4 class="h5 mb-3">Integrations</h4>
+                            <div>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Stripe</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Huawei PushKit</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Twilio</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Firebase</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <h4 class="h5 mb-3">Practices & Methodologies</h4>
+                            <div>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> OOP</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> SOLID</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> TDD</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> Microservices</span>
+                                <span class="skill-badge"><i class="bi bi-check-circle-fill text-success me-1"></i> CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Education & Certifications</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="bi bi-mortarboard-fill text-primary fs-1"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-4">
+                                    <h4 class="card-title">BS Software Engineering</h4>
+                                    <h5 class="card-subtitle mb-2 text-muted">Mohammad Ali Jinnah University, Karachi</h5>
+                                    <div class="d-flex flex-wrap mt-3">
+                                        <span class="badge bg-light text-dark me-2 mb-2">
+                                            <i class="bi bi-calendar me-1"></i> 2016 - 2020
+                                        </span>
+                                        <span class="badge bg-light text-dark me-2 mb-2">
+                                            <i class="bi bi-award me-1"></i> Software Development
+                                        </span>
+                                    </div>
+                                    <p class="card-text mt-2">
+                                        Completed degree with focus on software architecture, database systems, 
+                                        and web application development.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Certifications</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="bi bi-patch-check-fill text-success me-2"></i>
+                                        IT Entrepreneurship (Web and Mobile App Development) - IBA Karachi
+                                    </div>
+                                    <span class="badge bg-light text-dark">2021</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="bi bi-patch-check-fill text-success me-2"></i>
+                                        Web Development using PHP and MySQL - APTECH
+                                    </div>
+                                    <span class="badge bg-light text-dark">2019</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="bi bi-patch-check-fill text-success me-2"></i>
+                                        Eloquent ORM - Udemy
+                                    </div>
+                                    <span class="badge bg-light text-dark">2020</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="bi bi-patch-check-fill text-success me-2"></i>
+                                        JavaScript Algorithms - freeCodeCamp
+                                    </div>
+                                    <span class="badge bg-light text-dark">2022</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Projects Section -->
+    <section id="github" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">GitHub Projects</h2>
+            <div class="text-center mb-4">
+                <div class="spinner-border text-primary" id="github-loader">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            
+            <div id="github-stats" class="card mb-4 p-3">
+                <div class="row text-center">
+                    <div class="col-6 col-md-3">
+                        <h4 id="repo-count">--</h4>
+                        <small>Repositories</small>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 id="gist-count">--</h4>
+                        <small>Gists</small>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 id="follower-count">--</h4>
+                        <small>Followers</small>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 id="star-count">--</h4>
+                        <small>Stars</small>
+                    </div>
+                </div>
+            </div>
+
+            <div id="projects-container" class="row"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Get In Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="bi bi-envelope-fill text-primary me-2"></i>
+                                    <a href="mailto:syedanwar016@gmail.com">syedanwar016@gmail.com</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-phone-fill text-primary me-2"></i>
+                                    +92-332-0298363
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-github text-primary me-2"></i>
+                                    <a href="https://github.com/anwaar12345" target="_blank">github.com/anwaar12345</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                                    Karachi, Pakistan
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 bg-dark text-white text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Syed Anwar Ahmed Shah. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // GitHub API Integration
+        const GITHUB_USERNAME = 'anwaar12345';
+        const PROJECTS_CONTAINER = document.getElementById('projects-container');
+        const GITHUB_LOADER = document.getElementById('github-loader');
+
+        // Language colors mapping
+        const LANGUAGE_COLORS = {
+            'PHP': '#4F5D95',
+            'JavaScript': '#f1e05a',
+            'HTML': '#e34c26',
+            'CSS': '#563d7c',
+            'Python': '#3572A5',
+            'Java': '#b07219',
+            'TypeScript': '#2b7489',
+            'Shell': '#89e051',
+            'Vue': '#41b883',
+            'Dockerfile': '#384d54'
+        };
+
+        // Fetch GitHub data
+        async function fetchGitHubData() {
+            try {
+                // Fetch user stats
+                const userResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+                const userData = await userResponse.json();
+                
+                document.getElementById('repo-count').textContent = userData.public_repos;
+                document.getElementById('gist-count').textContent = userData.public_gists;
+                document.getElementById('follower-count').textContent = userData.followers;
+                
+                // Fetch repositories
+                const reposResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`);
+                const reposData = await reposResponse.json();
+                
+                // Calculate total stars
+                const starCount = reposData.reduce((total, repo) => total + repo.stargazers_count, 0);
+                document.getElementById('star-count').textContent = starCount;
+                
+                // Display projects
+                PROJECTS_CONTAINER.innerHTML = reposData.map(repo => `
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 github-project">
+                            <div class="card-body">
+                                <h5 class="card-title">${formatRepoName(repo.name)}</h5>
+                                <p class="card-text">${repo.description || 'No description available'}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        ${repo.language ? `
+                                            <span class="me-2">
+                                                <span class="language-dot" style="background-color: ${LANGUAGE_COLORS[repo.language] || '#ccc'}"></span>
+                                                ${repo.language}
+                                            </span>
+                                        ` : ''}
+                                        <span class="me-2"><i class="bi bi-star"></i> ${repo.stargazers_count}</span>
+                                        <span><i class="bi bi-diagram-2"></i> ${repo.forks_count}</span>
+                                    </div>
+                                    <a href="${repo.html_url}" target="_blank" class="btn btn-sm btn-outline-dark">
+                                        View
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                GITHUB_LOADER.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Error fetching GitHub data:', error);
+                PROJECTS_CONTAINER.innerHTML = `
+                    <div class="col-12 text-center text-danger">
+                        <p>Failed to load GitHub projects. Please check <a href="https://github.com/${GITHUB_USERNAME}" target="_blank">my GitHub profile</a> directly.</p>
+                    </div>
+                `;
+                GITHUB_LOADER.style.display = 'none';
+            }
+        }
+
+        function formatRepoName(name) {
+            return name.replace(/-/g, ' ').replace(/_/g, ' ')
+                      .replace(/(^\w|\s\w)/g, m => m.toUpperCase());
+        }
+
+        // Load GitHub data when page loads
+        document.addEventListener('DOMContentLoaded', fetchGitHubData);
+    </script>
+</body>
+</html>
