@@ -84,3 +84,39 @@
         // Load GitHub data when page loads
         document.addEventListener('DOMContentLoaded', fetchGitHubData);
     
+
+            // Close mobile navbar when clicking on a nav link
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // Add click event to all nav links
+        navLinks.forEach(function(navLink) {
+            navLink.addEventListener('click', function() {
+                // Check if navbar is expanded (mobile view)
+                if(navbarCollapse.classList.contains('show')) {
+                    // Close the navbar
+                    navbarToggler.click();
+                }
+            });
+        });
+        
+        // Optional: Close navbar when clicking anywhere outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNavbar = document.querySelector('.navbar').contains(event.target);
+            if(!isClickInsideNavbar && navbarCollapse.classList.contains('show')) {
+                navbarToggler.click();
+            }
+        });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if(window.scrollY > 10) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
